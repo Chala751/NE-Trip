@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>projct2</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .start {
+            background: url(trip1.jpg) no-repeat center center;
+            background-size: cover;
+            height: 100vh; /* Ensures the background covers the full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            width: 100%;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .navbar img {
+            border-radius: 50%;
+        }
+        #name {
+            color: white;
+            font-size: 30px;
+        }
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        .navbar ul li {
+            margin: 0 8px;
+            line-height: 70px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 6px 13px;
+            transition: .4s;
+        }
+        .navbar ul li a.active,
+        .navbar ul li a:hover {
+            background: red;
+            border-radius: 2px;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Positions the hamburger menu in the top-right corner */
+        }
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+        .A {
+            flex: 1; /* Ensures the content adjusts dynamically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            text-align: center;
+            width: 100%;
+        }
+        .A h1, .A h2 {
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .A h1:hover, .A h2:hover {
+            color: orangered;
+        }
+        .B button {
+            height: 50px;
+            width: 150px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffb3b3;
+            background: red;
+            border: 1px solid #cc0000;
+            outline: none;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: .5s;
+        }
+        .B button:hover {
+            background: #cc0000;
+        }
+        p {
+            color: black;
+            text-align: right;
+        }
+        hr {
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 20px;
+            }
+            .hamburger {
+                display: flex; /* Show hamburger menu in small media */
+            }
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                width: 70%; /* Reduces width to 70% of the screen */
+                position: absolute;
+                top: 70px;
+                right: 0; /* Aligns it to the right */
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 1000;
+                border-radius: 10px; /* Adds rounded corners for aesthetics */
+            }
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                line-height: 50px;
+            }
+            .navbar ul li a {
+                display: block;
+                padding: 10px 0;
+            }
+            .navbar ul.show {
+                display: flex;
+            }
+            #name {
+                font-size: 24px;
+            }
+            .A h1, .A h2 {
+                font-size: 30px;
+            }
+            .B button {
+                width: 120px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .start {
+                height: 100vh; /* Ensures full screen on small devices */
+            }
+            .A h1, .A h2 {
+                font-size: 24px;
+            }
+            .B button {
+                width: 100px;
+                font-size: 12px;
+            }
+            #name {
+                font-size: 20px;
+            }
+            .navbar img {
+                width: 40px;
+                height: 40px;
+            }
+            .navbar ul {
+                width: 80%; /* Adjusts the width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="start">
+        <nav class="navbar">
+            <img src="NEXUS LOGO.png" width="70px" height="70px">
+            <div id="name">NE-Trip</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul id="nav-links">
+                <li><a class="active" href="proj2.html">Home</a></li>
+                <li><a href="joinus.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+        <div class="A">
+            <h1>Welcome To NE-Trip</h1>
+            <h2>Where do you want to go?</h2>
+            <h2>Travel with us!</h2>
+            <div class="B">
+                <button onclick="alert('Go to service link')">Join Us</button>
+            </div>
+        </div>
+    </div>
+    <p>@NEXUS_ETHIOPIA</p>
+    <hr>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
